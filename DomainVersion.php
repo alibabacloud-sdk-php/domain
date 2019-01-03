@@ -9,10 +9,10 @@ use AlibabaCloud\VersionResolverTrait;
  *
  * @package   AlibabaCloud\Domain
  *
- * @method V20180129\DomainApiResolver v20180129()
- * @method V20180208\DomainApiResolver v20180208()
+ * @method static V20180129\DomainApiResolver v20180129()
+ * @method static V20180208\DomainApiResolver v20180208()
  */
-class Domain
+class DomainVersion
 {
     use VersionResolverTrait;
 }
