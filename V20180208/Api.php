@@ -2,7 +2,32 @@
 
 namespace AlibabaCloud\Domain\V20180208;
 
+use AlibabaCloud\ApiResolverTrait;
 use AlibabaCloud\Rpc;
+
+/**
+ * Resolve Api based on the method name.
+ *
+ * @method QueryBrokerDemandRecord queryBrokerDemandRecord(array $options = [])
+ * @method RequestPayDemand requestPayDemand(array $options = [])
+ * @method FinishDemand finishDemand(array $options = [])
+ * @method FailDemand failDemand(array $options = [])
+ * @method RecordDemand recordDemand(array $options = [])
+ * @method RefuseDemand refuseDemand(array $options = [])
+ * @method AcceptDemand acceptDemand(array $options = [])
+ * @method QueryBrokerDemand queryBrokerDemand(array $options = [])
+ * @method GetReserveDomainUrl getReserveDomainUrl(array $options = [])
+ * @method QueryAuctionDetail queryAuctionDetail(array $options = [])
+ * @method QueryAuctions queryAuctions(array $options = [])
+ * @method QueryBidRecords queryBidRecords(array $options = [])
+ * @method QueryBookingDomainInfo queryBookingDomainInfo(array $options = [])
+ * @method BidDomain bidDomain(array $options = [])
+ * @method ReserveDomain reserveDomain(array $options = [])
+ */
+class DomainApiResolver
+{
+    use ApiResolverTrait;
+}
 
 class V20180208Rpc extends Rpc
 {
@@ -173,14 +198,14 @@ class ReserveDomain extends V20180208Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $channels
      *
      * @return $this
      */
-    public function withChannels(array $value)
+    public function withChannels(array $channels)
     {
-        $this->data['Channels'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Channels'] = $channels;
+        foreach ($channels as $i => $iValue) {
             $this->options['query']['Channels.' . ($i + 1)] = $iValue;
         }
 

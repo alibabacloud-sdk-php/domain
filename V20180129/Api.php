@@ -2,7 +2,117 @@
 
 namespace AlibabaCloud\Domain\V20180129;
 
+use AlibabaCloud\ApiResolverTrait;
 use AlibabaCloud\Rpc;
+
+/**
+ * Resolve Api based on the method name.
+ *
+ * @method SaveSingleTaskForSynchronizingDSRecord saveSingleTaskForSynchronizingDSRecord(array $options = [])
+ * @method SaveSingleTaskForDeletingDSRecord saveSingleTaskForDeletingDSRecord(array $options = [])
+ * @method SaveSingleTaskForModifyingDSRecord saveSingleTaskForModifyingDSRecord(array $options = [])
+ * @method SaveSingleTaskForAddingDSRecord saveSingleTaskForAddingDSRecord(array $options = [])
+ * @method QueryDSRecord queryDSRecord(array $options = [])
+ * @method BatchFuzzyMatchDomainSensitiveWord batchFuzzyMatchDomainSensitiveWord(array $options = [])
+ * @method FuzzyMatchDomainSensitiveWord fuzzyMatchDomainSensitiveWord(array $options = [])
+ * @method ScrollDomainList scrollDomainList(array $options = [])
+ * @method LookupTmchNotice lookupTmchNotice(array $options = [])
+ * @method CheckDomainSunriseClaim checkDomainSunriseClaim(array $options = [])
+ * @method QueryDomainAdminDivision queryDomainAdminDivision(array $options = [])
+ * @method CancelQualificationVerification cancelQualificationVerification(array $options = [])
+ * @method QueryLocalEnsAssociation queryLocalEnsAssociation(array $options = [])
+ * @method QueryEnsAssociation queryEnsAssociation(array $options = [])
+ * @method SaveSingleTaskForDisassociatingEns saveSingleTaskForDisassociatingEns(array $options = [])
+ * @method SaveSingleTaskForAssociatingEns saveSingleTaskForAssociatingEns(array $options = [])
+ * @method ResetQualificationVerification resetQualificationVerification(array $options = [])
+ * @method QueryFailingReasonListForQualification queryFailingReasonListForQualification(array $options = [])
+ * @method QueryQualificationDetail queryQualificationDetail(array $options = [])
+ * @method GetQualificationUploadPolicy getQualificationUploadPolicy(array $options = [])
+ * @method CheckProcessingServerLockApply checkProcessingServerLockApply(array $options = [])
+ * @method CheckMaxYearOfServerLock checkMaxYearOfServerLock(array $options = [])
+ * @method QueryServerLock queryServerLock(array $options = [])
+ * @method ListServerLock listServerLock(array $options = [])
+ * @method QueryEmailVerification queryEmailVerification(array $options = [])
+ * @method CancelDomainVerification cancelDomainVerification(array $options = [])
+ * @method QueryDomainRealNameVerificationInfo queryDomainRealNameVerificationInfo(array $options = [])
+ * @method SaveSingleTaskForDeletingDnsHost saveSingleTaskForDeletingDnsHost(array $options = [])
+ * @method SaveDomainGroup saveDomainGroup(array $options = [])
+ * @method DeleteDomainGroup deleteDomainGroup(array $options = [])
+ * @method UpdateDomainToDomainGroup updateDomainToDomainGroup(array $options = [])
+ * @method SaveBatchDomainRemark saveBatchDomainRemark(array $options = [])
+ * @method QueryDomainSuffix queryDomainSuffix(array $options = [])
+ * @method QueryAdvancedDomainList queryAdvancedDomainList(array $options = [])
+ * @method QueryDnsHost queryDnsHost(array $options = [])
+ * @method SaveSingleTaskForUpdatingContactInfo saveSingleTaskForUpdatingContactInfo(array $options = [])
+ * @method SaveSingleTaskForUpdateProhibitionLock saveSingleTaskForUpdateProhibitionLock(array $options = [])
+ * @method SaveSingleTaskForTransferProhibitionLock saveSingleTaskForTransferProhibitionLock(array $options = [])
+ * @method SaveSingleTaskForSynchronizingDnsHost saveSingleTaskForSynchronizingDnsHost(array $options = [])
+ * @method SaveSingleTaskForModifyingDnsHost saveSingleTaskForModifyingDnsHost(array $options = [])
+ * @method SaveSingleTaskForDomainNameProxyService saveSingleTaskForDomainNameProxyService(array $options = [])
+ * @method SaveSingleTaskForCreatingDnsHost saveSingleTaskForCreatingDnsHost(array $options = [])
+ * @method SaveSingleTaskForCreatingOrderRedeem saveSingleTaskForCreatingOrderRedeem(array $options = [])
+ * @method SaveBatchTaskForCreatingOrderRedeem saveBatchTaskForCreatingOrderRedeem(array $options = [])
+ * @method VerifyContactField verifyContactField(array $options = [])
+ * @method AcknowledgeTaskResult acknowledgeTaskResult(array $options = [])
+ * @method PollTaskResult pollTaskResult(array $options = [])
+ * @method QueryDomainGroupList queryDomainGroupList(array $options = [])
+ * @method SaveSingleTaskForApprovingTransferOut saveSingleTaskForApprovingTransferOut(array $options = [])
+ * @method SaveSingleTaskForCancelingTransferOut saveSingleTaskForCancelingTransferOut(array $options = [])
+ * @method SaveSingleTaskForQueryingTransferAuthorizationCode saveSingleTaskForQueryingTransferAuthorizationCode(array $options = [])
+ * @method QueryTransferOutInfo queryTransferOutInfo(array $options = [])
+ * @method QueryRegistrantProfileRealNameVerificationInfo queryRegistrantProfileRealNameVerificationInfo(array $options = [])
+ * @method ConfirmTransferInEmail confirmTransferInEmail(array $options = [])
+ * @method TransferInRefetchWhoisEmail transferInRefetchWhoisEmail(array $options = [])
+ * @method CheckTransferInFeasibility checkTransferInFeasibility(array $options = [])
+ * @method QueryTransferInList queryTransferInList(array $options = [])
+ * @method QueryTransferInByInstanceId queryTransferInByInstanceId(array $options = [])
+ * @method SaveSingleTaskForCancelingTransferIn saveSingleTaskForCancelingTransferIn(array $options = [])
+ * @method TransferInReenterTransferAuthorizationCode transferInReenterTransferAuthorizationCode(array $options = [])
+ * @method TransferInResendMailToken transferInResendMailToken(array $options = [])
+ * @method TransferInCheckMailToken transferInCheckMailToken(array $options = [])
+ * @method SaveSingleTaskForCreatingOrderTransfer saveSingleTaskForCreatingOrderTransfer(array $options = [])
+ * @method SaveBatchTaskForCreatingOrderTransfer saveBatchTaskForCreatingOrderTransfer(array $options = [])
+ * @method SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential saveTaskForSubmittingDomainRealNameVerificationByIdentityCredential(array $options = [])
+ * @method RegistrantProfileRealNameVerification registrantProfileRealNameVerification(array $options = [])
+ * @method SaveTaskForSubmittingDomainDelete saveTaskForSubmittingDomainDelete(array $options = [])
+ * @method SaveBatchTaskForUpdatingContactInfoByNewContact saveBatchTaskForUpdatingContactInfoByNewContact(array $options = [])
+ * @method SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId saveBatchTaskForUpdatingContactInfoByRegistrantProfileId(array $options = [])
+ * @method EmailVerified emailVerified(array $options = [])
+ * @method ResendEmailVerification resendEmailVerification(array $options = [])
+ * @method DeleteEmailVerification deleteEmailVerification(array $options = [])
+ * @method SubmitEmailVerification submitEmailVerification(array $options = [])
+ * @method VerifyEmail verifyEmail(array $options = [])
+ * @method QueryFailReasonForDomainRealNameVerification queryFailReasonForDomainRealNameVerification(array $options = [])
+ * @method ListEmailVerification listEmailVerification(array $options = [])
+ * @method QueryTaskDetailHistory queryTaskDetailHistory(array $options = [])
+ * @method QueryTaskInfoHistory queryTaskInfoHistory(array $options = [])
+ * @method QueryFailReasonForRegistrantProfileRealNameVerification queryFailReasonForRegistrantProfileRealNameVerification(array $options = [])
+ * @method QueryTaskDetailList queryTaskDetailList(array $options = [])
+ * @method CheckDomain checkDomain(array $options = [])
+ * @method SaveTaskForUpdatingRegistrantInfoByIdentityCredential saveTaskForUpdatingRegistrantInfoByIdentityCredential(array $options = [])
+ * @method QueryTaskList queryTaskList(array $options = [])
+ * @method SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID saveTaskForUpdatingRegistrantInfoByRegistrantProfileID(array $options = [])
+ * @method SaveBatchTaskForCreatingOrderRenew saveBatchTaskForCreatingOrderRenew(array $options = [])
+ * @method SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID(array $options = [])
+ * @method QueryDomainByInstanceId queryDomainByInstanceId(array $options = [])
+ * @method SaveSingleTaskForCreatingOrderRenew saveSingleTaskForCreatingOrderRenew(array $options = [])
+ * @method SaveBatchTaskForModifyingDomainDns saveBatchTaskForModifyingDomainDns(array $options = [])
+ * @method SaveBatchTaskForDomainNameProxyService saveBatchTaskForDomainNameProxyService(array $options = [])
+ * @method SaveBatchTaskForTransferProhibitionLock saveBatchTaskForTransferProhibitionLock(array $options = [])
+ * @method QueryDomainList queryDomainList(array $options = [])
+ * @method SaveBatchTaskForUpdateProhibitionLock saveBatchTaskForUpdateProhibitionLock(array $options = [])
+ * @method QueryContactInfo queryContactInfo(array $options = [])
+ * @method QueryChangeLogList queryChangeLogList(array $options = [])
+ * @method SaveSingleTaskForCreatingOrderActivate saveSingleTaskForCreatingOrderActivate(array $options = [])
+ * @method SaveBatchTaskForCreatingOrderActivate saveBatchTaskForCreatingOrderActivate(array $options = [])
+ * @method DeleteRegistrantProfile deleteRegistrantProfile(array $options = [])
+ * @method QueryRegistrantProfiles queryRegistrantProfiles(array $options = [])
+ * @method SaveRegistrantProfile saveRegistrantProfile(array $options = [])
+ */
+class DomainApiResolver
+{
+    use ApiResolverTrait;
+}
 
 class V20180129Rpc extends Rpc
 {
@@ -485,14 +595,14 @@ class UpdateDomainToDomainGroup extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -669,14 +779,14 @@ class SaveSingleTaskForModifyingDnsHost extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $ip
      *
      * @return $this
      */
-    public function withIp(array $value)
+    public function withIp(array $ip)
     {
-        $this->data['Ip'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Ip'] = $ip;
+        foreach ($ip as $i => $iValue) {
             $this->options['query']['Ip.' . ($i + 1)] = $iValue;
         }
 
@@ -713,14 +823,14 @@ class SaveSingleTaskForCreatingDnsHost extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $ip
      *
      * @return $this
      */
-    public function withIp(array $value)
+    public function withIp(array $ip)
     {
-        $this->data['Ip'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Ip'] = $ip;
+        foreach ($ip as $i => $iValue) {
             $this->options['query']['Ip.' . ($i + 1)] = $iValue;
         }
 
@@ -769,16 +879,16 @@ class SaveBatchTaskForCreatingOrderRedeem extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $orderRedeemParam
      *
      * @return $this
      */
-    public function withOrderRedeemParam(array $value)
+    public function withOrderRedeemParam(array $orderRedeemParam)
     {
-        $this->data['OrderRedeemParam'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['OrderRedeemParam.' . ($i + 1) . '.CurrentExpirationDate'] = $value[$i]['CurrentExpirationDate'];
-            $this->options['query']['OrderRedeemParam.' . ($i + 1) . '.DomainName'] = $value[$i]['DomainName'];
+        $this->data['OrderRedeemParam'] = $orderRedeemParam;
+        foreach ($orderRedeemParam as $depth1 => $depth1Value) {
+            $this->options['query']['OrderRedeemParam.' . ($depth1 + 1) . '.CurrentExpirationDate'] = $depth1Value['CurrentExpirationDate'];
+            $this->options['query']['OrderRedeemParam.' . ($depth1 + 1) . '.DomainName'] = $depth1Value['DomainName'];
         }
 
         return $this;
@@ -842,14 +952,14 @@ class AcknowledgeTaskResult extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $taskDetailNo
      *
      * @return $this
      */
-    public function withTaskDetailNo(array $value)
+    public function withTaskDetailNo(array $taskDetailNo)
     {
-        $this->data['TaskDetailNo'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['TaskDetailNo'] = $taskDetailNo;
+        foreach ($taskDetailNo as $i => $iValue) {
             $this->options['query']['TaskDetailNo.' . ($i + 1)] = $iValue;
         }
 
@@ -968,14 +1078,14 @@ class ConfirmTransferInEmail extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1138,18 +1248,18 @@ class SaveBatchTaskForCreatingOrderTransfer extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $orderTransferParam
      *
      * @return $this
      */
-    public function withOrderTransferParam(array $value)
+    public function withOrderTransferParam(array $orderTransferParam)
     {
-        $this->data['OrderTransferParam'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['OrderTransferParam.' . ($i + 1) . '.PermitPremiumTransfer'] = $value[$i]['PermitPremiumTransfer'];
-            $this->options['query']['OrderTransferParam.' . ($i + 1) . '.AuthorizationCode'] = $value[$i]['AuthorizationCode'];
-            $this->options['query']['OrderTransferParam.' . ($i + 1) . '.DomainName'] = $value[$i]['DomainName'];
-            $this->options['query']['OrderTransferParam.' . ($i + 1) . '.RegistrantProfileId'] = $value[$i]['RegistrantProfileId'];
+        $this->data['OrderTransferParam'] = $orderTransferParam;
+        foreach ($orderTransferParam as $depth1 => $depth1Value) {
+            $this->options['query']['OrderTransferParam.' . ($depth1 + 1) . '.PermitPremiumTransfer'] = $depth1Value['PermitPremiumTransfer'];
+            $this->options['query']['OrderTransferParam.' . ($depth1 + 1) . '.AuthorizationCode'] = $depth1Value['AuthorizationCode'];
+            $this->options['query']['OrderTransferParam.' . ($depth1 + 1) . '.DomainName'] = $depth1Value['DomainName'];
+            $this->options['query']['OrderTransferParam.' . ($depth1 + 1) . '.RegistrantProfileId'] = $depth1Value['RegistrantProfileId'];
         }
 
         return $this;
@@ -1173,14 +1283,14 @@ class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential extend
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1267,14 +1377,14 @@ class SaveBatchTaskForUpdatingContactInfoByNewContact extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1299,14 +1409,14 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId extends V20180129
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1557,14 +1667,14 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredential extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1605,14 +1715,14 @@ class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID extends V20180129Rp
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1639,17 +1749,17 @@ class SaveBatchTaskForCreatingOrderRenew extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $orderRenewParam
      *
      * @return $this
      */
-    public function withOrderRenewParam(array $value)
+    public function withOrderRenewParam(array $orderRenewParam)
     {
-        $this->data['OrderRenewParam'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['OrderRenewParam.' . ($i + 1) . '.SubscriptionDuration'] = $value[$i]['SubscriptionDuration'];
-            $this->options['query']['OrderRenewParam.' . ($i + 1) . '.CurrentExpirationDate'] = $value[$i]['CurrentExpirationDate'];
-            $this->options['query']['OrderRenewParam.' . ($i + 1) . '.DomainName'] = $value[$i]['DomainName'];
+        $this->data['OrderRenewParam'] = $orderRenewParam;
+        foreach ($orderRenewParam as $depth1 => $depth1Value) {
+            $this->options['query']['OrderRenewParam.' . ($depth1 + 1) . '.SubscriptionDuration'] = $depth1Value['SubscriptionDuration'];
+            $this->options['query']['OrderRenewParam.' . ($depth1 + 1) . '.CurrentExpirationDate'] = $depth1Value['CurrentExpirationDate'];
+            $this->options['query']['OrderRenewParam.' . ($depth1 + 1) . '.DomainName'] = $depth1Value['DomainName'];
         }
 
         return $this;
@@ -1722,14 +1832,14 @@ class SaveBatchTaskForModifyingDomainDns extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1737,14 +1847,14 @@ class SaveBatchTaskForModifyingDomainDns extends V20180129Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $domainNameServer
      *
      * @return $this
      */
-    public function withDomainNameServer(array $value)
+    public function withDomainNameServer(array $domainNameServer)
     {
-        $this->data['DomainNameServer'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainNameServer'] = $domainNameServer;
+        foreach ($domainNameServer as $i => $iValue) {
             $this->options['query']['DomainNameServer.' . ($i + 1)] = $iValue;
         }
 
@@ -1765,14 +1875,14 @@ class SaveBatchTaskForDomainNameProxyService extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1793,14 +1903,14 @@ class SaveBatchTaskForTransferProhibitionLock extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1855,14 +1965,14 @@ class SaveBatchTaskForUpdateProhibitionLock extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $domainName
      *
      * @return $this
      */
-    public function withDomainName(array $value)
+    public function withDomainName(array $domainName)
     {
-        $this->data['DomainName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DomainName'] = $domainName;
+        foreach ($domainName as $i => $iValue) {
             $this->options['query']['DomainName.' . ($i + 1)] = $iValue;
         }
 
@@ -1993,40 +2103,40 @@ class SaveBatchTaskForCreatingOrderActivate extends V20180129Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $orderActivateParam
      *
      * @return $this
      */
-    public function withOrderActivateParam(array $value)
+    public function withOrderActivateParam(array $orderActivateParam)
     {
-        $this->data['OrderActivateParam'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.Country'] = $value[$i]['Country'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.SubscriptionDuration'] = $value[$i]['SubscriptionDuration'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.PermitPremiumActivation'] = $value[$i]['PermitPremiumActivation'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.City'] = $value[$i]['City'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.Dns2'] = $value[$i]['Dns2'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.Dns1'] = $value[$i]['Dns1'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.RegistrantProfileId'] = $value[$i]['RegistrantProfileId'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.AliyunDns'] = $value[$i]['AliyunDns'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.ZhCity'] = $value[$i]['ZhCity'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.TelExt'] = $value[$i]['TelExt'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.ZhRegistrantName'] = $value[$i]['ZhRegistrantName'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.Province'] = $value[$i]['Province'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.PostalCode'] = $value[$i]['PostalCode'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.Email'] = $value[$i]['Email'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.ZhRegistrantOrganization'] = $value[$i]['ZhRegistrantOrganization'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.Address'] = $value[$i]['Address'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.TelArea'] = $value[$i]['TelArea'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.DomainName'] = $value[$i]['DomainName'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.ZhAddress'] = $value[$i]['ZhAddress'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.RegistrantType'] = $value[$i]['RegistrantType'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.Telephone'] = $value[$i]['Telephone'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.TrademarkDomainActivation'] = $value[$i]['TrademarkDomainActivation'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.ZhProvince'] = $value[$i]['ZhProvince'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.RegistrantOrganization'] = $value[$i]['RegistrantOrganization'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.EnableDomainProxy'] = $value[$i]['EnableDomainProxy'];
-            $this->options['query']['OrderActivateParam.' . ($i + 1) . '.RegistrantName'] = $value[$i]['RegistrantName'];
+        $this->data['OrderActivateParam'] = $orderActivateParam;
+        foreach ($orderActivateParam as $depth1 => $depth1Value) {
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.Country'] = $depth1Value['Country'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.SubscriptionDuration'] = $depth1Value['SubscriptionDuration'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.PermitPremiumActivation'] = $depth1Value['PermitPremiumActivation'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.City'] = $depth1Value['City'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.Dns2'] = $depth1Value['Dns2'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.Dns1'] = $depth1Value['Dns1'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.RegistrantProfileId'] = $depth1Value['RegistrantProfileId'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.AliyunDns'] = $depth1Value['AliyunDns'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.ZhCity'] = $depth1Value['ZhCity'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.TelExt'] = $depth1Value['TelExt'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.ZhRegistrantName'] = $depth1Value['ZhRegistrantName'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.Province'] = $depth1Value['Province'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.PostalCode'] = $depth1Value['PostalCode'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.Email'] = $depth1Value['Email'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.ZhRegistrantOrganization'] = $depth1Value['ZhRegistrantOrganization'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.Address'] = $depth1Value['Address'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.TelArea'] = $depth1Value['TelArea'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.DomainName'] = $depth1Value['DomainName'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.ZhAddress'] = $depth1Value['ZhAddress'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.RegistrantType'] = $depth1Value['RegistrantType'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.Telephone'] = $depth1Value['Telephone'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.TrademarkDomainActivation'] = $depth1Value['TrademarkDomainActivation'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.ZhProvince'] = $depth1Value['ZhProvince'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.RegistrantOrganization'] = $depth1Value['RegistrantOrganization'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.EnableDomainProxy'] = $depth1Value['EnableDomainProxy'];
+            $this->options['query']['OrderActivateParam.' . ($depth1 + 1) . '.RegistrantName'] = $depth1Value['RegistrantName'];
         }
 
         return $this;
